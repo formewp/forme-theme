@@ -1,0 +1,20 @@
+{
+    "name": "replace-me-theme",
+    "description": "Your description goes here",
+    "main": "assets/src/js/app.js",
+    "scripts": {
+        "encore": "encore",
+        "build": "encore production",
+        "dev": "encore dev"
+    },
+    "private": true,
+    "dependencies": {
+        "bootstrap": "^5.1.1",
+        "@popperjs/core": "^2.9.2",
+        "bootstrap5-multi-level-dropdown": "^1.0.2"
+    },
+    "devDependencies": {
+        "@symfony/webpack-encore": "^1.6.1",
+        "webpack-notifier": "^1.13.0"
+    }
+}

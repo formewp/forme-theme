@@ -1,0 +1,22 @@
+{
+    "name": "vendor-name/replace-me-theme",
+    "description": "Your description goes here",
+    "type": "wordpress-theme",
+    "require": {
+        "forme/framework": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "VendorName\\ReplaceMeTheme\\": "app/"
+        },
+        "files": [
+            "helpers/helpers.php"
+        ]
+    },
+    "extra": {
+        "dev-files": [
+            "/githooks/*",
+            "/.*"
+        ]
+    }
+}

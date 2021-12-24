@@ -1,0 +1,3 @@
+/* This is your style entry point if you are using webpack encore */
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import "~bootstrap5-multi-level-dropdown/css/bootstrap5-multi-level-dropdown-hover.css";
