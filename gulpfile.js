@@ -2,6 +2,8 @@ const { src, dest, series } = require('gulp');
 const replace = require('gulp-replace');
 const { argv } = require('yargs');
 const { pascalCase, paramCase, snakeCase, capitalCase } = require("change-case");
+const del = require('del');
+
 const paths = [
     'app/**/**',
     'composer.json',
@@ -13,6 +15,10 @@ const paths = [
     'single.php',
     'style.css',
     'inc/**/**'
+];
+
+const views = [
+    'views/plates-4',
 ];
 
 function swapNameStrings() {
@@ -58,14 +64,17 @@ function multilevelCss() {
     return src('./node_modules/bootstrap5-multi-level-dropdown/css/bootstrap5-multi-level-dropdown-hover.css').pipe(dest('./assets/static/css'));
 }
 
-function setupViews() {
+function copyViews() {
     if (typeof argv.view === "undefined") {
         argv.view = "plates-4";
     }
     // TODO: Add support for other view engines
-    // move contents of /views/plates-4/* to /views/
-    return src(paths, { base: "./views/" + argv.view + '/' }).pipe(dest('./views/'));
-
+    // copy contents to /views/
+    return src('views/' + argv.view + '/**/**').pipe(dest('./views/'));
 }
 
-exports.default = series(swapNameStrings, swapVendorStrings, bootstrapJs, bootstrapCss, multilevelJs, multilevelCss);
+function deleteSourceViews() {
+    return del(views);
+}
+
+exports.default = series(swapNameStrings, swapVendorStrings, bootstrapJs, bootstrapCss, multilevelJs, multilevelCss, copyViews, deleteSourceViews);
