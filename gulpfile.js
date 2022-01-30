@@ -81,7 +81,7 @@ function deleteSourceViews() {
     return del(viewDirectories);
 }
 
-function updateViewEngine() {
+function updateViewClass() {
     if (typeof argv.view === "undefined") {
         argv.view = "plates-4";
     }
@@ -90,4 +90,4 @@ function updateViewEngine() {
         .pipe(dest('./app/View.php'));
 }
 
-exports.default = series(swapNameStrings, swapVendorStrings, bootstrapJs, bootstrapCss, multilevelJs, multilevelCss, copyViews, deleteSourceViews, updateViewEngine);
+exports.default = series(swapNameStrings, swapVendorStrings, bootstrapJs, bootstrapCss, multilevelJs, multilevelCss, copyViews, deleteSourceViews, updateViewClass);
