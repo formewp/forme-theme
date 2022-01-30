@@ -85,9 +85,9 @@ function updateViewClass() {
     if (typeof argv.view === "undefined") {
         argv.view = "plates-4";
     }
-    return src('./app/View.php')
+    return src('./app/Core/View.php')
         .pipe(replace('ViewClassGoesHere', viewClasses[argv.view]))
-        .pipe(dest('./app/View.php'));
+        .pipe(dest('./app/Core/View.php'));
 }
 
 exports.default = series(swapNameStrings, swapVendorStrings, bootstrapJs, bootstrapCss, multilevelJs, multilevelCss, copyViews, deleteSourceViews, updateViewClass);
