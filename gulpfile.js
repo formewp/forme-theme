@@ -17,9 +17,14 @@ const paths = [
     'inc/**/**'
 ];
 
-const views = [
+// TODO: support other view engines - blade, twig, plates 3
+const viewDirectories = [
     'views/plates-4',
 ];
+
+const viewClasses = {
+    'plates-4': 'LegacyPlatesView',
+};
 
 function swapNameStrings() {
     let pascalName = pascalCase(argv.name);
@@ -68,13 +73,21 @@ function copyViews() {
     if (typeof argv.view === "undefined") {
         argv.view = "plates-4";
     }
-    // TODO: Add support for other view engines
     // copy contents to /views/
     return src('views/' + argv.view + '/**/**').pipe(dest('./views/'));
 }
 
 function deleteSourceViews() {
-    return del(views);
+    return del(viewDirectories);
 }
 
-exports.default = series(swapNameStrings, swapVendorStrings, bootstrapJs, bootstrapCss, multilevelJs, multilevelCss, copyViews, deleteSourceViews);
+function updateViewEngine() {
+    if (typeof argv.view === "undefined") {
+        argv.view = "plates-4";
+    }
+    return src('./app/View.php')
+        .pipe(replace('ViewClassGoesHere', viewClasses[argv.view]))
+        .pipe(dest('./app/View.php'));
+}
+
+exports.default = series(swapNameStrings, swapVendorStrings, bootstrapJs, bootstrapCss, multilevelJs, multilevelCss, copyViews, deleteSourceViews, updateViewEngine);
