@@ -58,4 +58,14 @@ function multilevelCss() {
     return src('./node_modules/bootstrap5-multi-level-dropdown/css/bootstrap5-multi-level-dropdown-hover.css').pipe(dest('./assets/static/css'));
 }
 
+function setupViews() {
+    if (typeof argv.view === "undefined") {
+        argv.view = "plates-4";
+    }
+    // TODO: Add support for other view engines
+    // move contents of /views/plates-4/* to /views/
+    return src(paths, { base: "./views/" + argv.view + '/' }).pipe(dest('./views/'));
+
+}
+
 exports.default = series(swapNameStrings, swapVendorStrings, bootstrapJs, bootstrapCss, multilevelJs, multilevelCss);
