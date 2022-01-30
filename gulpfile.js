@@ -87,7 +87,7 @@ function updateViewClass() {
     }
     return src('./app/Core/View.php')
         .pipe(replace('ViewClassGoesHere', viewClasses[argv.view]))
-        .pipe(dest('./app/Core/View.php'));
+        .pipe(dest('./app/Core/'));
 }
 
 exports.default = series(swapNameStrings, swapVendorStrings, bootstrapJs, bootstrapCss, multilevelJs, multilevelCss, copyViews, deleteSourceViews, updateViewClass);
