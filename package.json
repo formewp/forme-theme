@@ -4,7 +4,7 @@
     "description": "Forme Wordpress Starter Theme",
     "devDependencies": {
         "bootstrap": "^5.1.0",
-        "bootstrap5-multi-level-dropdown": "github:moussaclarke/bootstrap-5-multi-level-dropdown",
+        "bootstrap5-multi-level-dropdown": "^1.0.2",
         "change-case": "^4.1.1",
         "gulp": "^4.0.2",
         "gulp-replace": "^1.0.0",
