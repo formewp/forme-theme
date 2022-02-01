@@ -10,7 +10,7 @@
     <?php wp_head(); ?>
 </head>
 
-<body <?= body_class() ?>>
+<body {{ body_class() }}>
     @include('partials/nav', ['logoUrl' => $logoUrl])
     @yield('content')
     @include('partials/footer')

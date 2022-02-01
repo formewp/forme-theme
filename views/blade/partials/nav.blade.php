@@ -2,12 +2,12 @@
 <nav class="navbar navbar-expand-lg">
     <div class="container">
         <!-- Logo -->
-        <a class="navbar-brand" href="<?= home_url() ?>">
-            <?php if (isset($logoUrl)):?>
-            <img src="<?= $logoUrl ?>">
-            <?php else:?>
-            <?= bloginfo('name') ?>
-            <?php endif?>
+        <a class="navbar-brand" href="{{ home_url() }}">
+            @if (isset($logoUrl))
+                <img src="{{ $logoUrl }}">
+            @else
+                {{ bloginfo('name') }}
+            @endif
         </a>
         <!-- Toggler -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"

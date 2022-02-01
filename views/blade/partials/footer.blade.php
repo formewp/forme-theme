@@ -4,7 +4,7 @@
         <div class="row no-gutters py-1">
             <div class="col-12 col-md-6 text-center text-md-left">
                 <small>
-                    &copy; <?=date('Y')?> Acme Company.
+                    &copy; {{ date('Y') }} Acme Company.
                     All Rights Reserved.
                 </small>
             </div>
@@ -17,5 +17,5 @@
             </div>
         </div>
     </div>
-    <?php wp_footer();?>
+    <?php wp_footer(); ?>
 </footer>
