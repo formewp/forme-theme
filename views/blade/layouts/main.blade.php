@@ -7,13 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <?php wp_head(); ?>
+    @wphead()
 </head>
 
-<body {{ body_class() }}>
-    @include('partials/nav', ['logoUrl' => $logoUrl])
+<body @bodyclass()>
+    @include('partials.nav', ['logoUrl' => $logoUrl])
     @yield('content')
-    @include('partials/footer')
+    @include('partials.footer')
 </body>
 
 </html>
