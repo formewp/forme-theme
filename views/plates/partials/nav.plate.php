@@ -16,7 +16,7 @@
         </button>
         <!-- Nav -->
         <div class="collapse navbar-collapse search-form-wrapper">
-            <?=$v->render('partials/search')?>
+            <?=$this->insert('partials/search')?>
         </div>
     </div>
 </nav>
@@ -25,7 +25,7 @@
         <!-- Header Menu -->
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav mx-auto">
-                <?=$v->render('partials/menu', ['menu' => menu('header-menu')])?>
+                <?=$this->insert('partials/menu', ['menu' => menu('header-menu')])?>
             </ul>
         </div>
     </div>

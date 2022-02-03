@@ -11,9 +11,9 @@
 </head>
 
 <body <?=body_class()?>>
-    <?=$v->render('partials/nav', ['logoUrl' => $logoUrl])?>
-    <?=$v->section('content')?>
-    <?=$v->render('partials/footer')?>
+    <?=$this->insert('partials/nav', ['logoUrl' => $logoUrl])?>
+    <?=$this->section('content')?>
+    <?=$this->insert('partials/footer')?>
 </body>
 
 </html>

@@ -4,7 +4,7 @@
     <a class="d-inline-block nav-link" href=" <?=$item->url?>"><?=$item->title?></a>
     <a class="d-inline-block nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#"> </a>
     <ul class="dropdown-menu">
-        <?=$v->render('partials/menu', ['menu' => $item->childItems(), 'dropdownItem' => ' dropdown-item', 'dropEnd' => ' dropend'])?>
+        <?=$this->insert('partials/menu', ['menu' => $item->childItems(), 'dropdownItem' => ' dropdown-item', 'dropEnd' => ' dropend'])?>
     </ul>
 </li>
 <?php else: ?>
