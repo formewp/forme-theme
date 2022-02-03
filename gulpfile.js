@@ -20,7 +20,7 @@ const paths = [
 // TODO: support other view engines - twig, plates 3
 const viewDirectories = [
     'views/plates-4',
-    'vies/blade',
+    'views/blade',
 ];
 
 const viewClasses = {
