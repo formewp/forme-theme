@@ -17,17 +17,18 @@ const paths = [
     'inc/**/**'
 ];
 
-// TODO: support twig
 const viewDirectories = [
     'views/plates-4',
     'views/blade',
-    'views/plates'
+    'views/plates',
+    'views/twig'
 ];
 
 const viewClasses = {
     'plates-4': 'LegacyPlatesView',
     'blade': 'BladeView',
     'plates': 'PlatesView',
+    'twig': 'TwigView'
 };
 
 function swapNameStrings() {

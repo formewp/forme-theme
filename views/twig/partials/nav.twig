@@ -1,0 +1,32 @@
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+        <!-- Logo -->
+        <a class="navbar-brand" href="{{ fn('home_url') }}">
+            {% if logoUrl %}
+                <img src="{{ logoUrl }}">
+            {% else %}
+                {{ fn('bloginfo','name') }}
+            {% endif %}
+        </a>
+        <!-- Toggler -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"
+            aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="fa fa-bars"></span>
+        </button>
+        <!-- Nav -->
+        <div class="collapse navbar-collapse search-form-wrapper">
+            {{ include('partials/search.twig') }}
+        </div>
+    </div>
+</nav>
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+        <!-- Header Menu -->
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mx-auto">
+                {{ include('partials/menu.twig', { menu: fn('menu', 'header-menu')}) }}
+            </ul>
+        </div>
+    </div>
+</nav>

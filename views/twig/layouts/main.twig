@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html {{ fn('language_attributes') }} class="no-js no-svg">
+
+<head>
+    <title>Forme</title>
+    <meta charset="{{ function('bloginfo', 'charset') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    {{ fn('wp_head') }}
+</head>
+
+<body {{ fn('body_class') }}>
+    {{ include('partials/nav.twig', {'logoUrl' : logoUrl} ) }}
+    {% block content %}
+    {% endblock %}
+    {{ include('partials/footer.twig') }}
+</body>
+
+</html>
