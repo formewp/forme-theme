@@ -17,13 +17,15 @@ const paths = [
     'inc/**/**'
 ];
 
-// TODO: support other view engines - blade, twig, plates 3
+// TODO: support other view engines - twig, plates 3
 const viewDirectories = [
     'views/plates-4',
+    'vies/blade',
 ];
 
 const viewClasses = {
     'plates-4': 'LegacyPlatesView',
+    'blade': 'BladeView',
 };
 
 function swapNameStrings() {
