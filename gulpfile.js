@@ -14,7 +14,8 @@ const paths = [
     'page.php',
     'single.php',
     'style.css',
-    'inc/**/**'
+    'inc/**/**',
+    'helpers/helpers.php',
 ];
 
 const viewDirectories = [
