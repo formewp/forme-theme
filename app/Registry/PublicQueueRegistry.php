@@ -27,7 +27,7 @@ class PublicQueueRegistry implements RegistryInterface
         wp_enqueue_script('font-awesome', 'https://kit.fontawesome.com/4c91db5740.js', [], false, true);
 
         // we do everything else via encore/dist or static
-        wp_enqueue_style('replace-me-theme-public-styles', Assets::uri('app.css'), [], Assets::time('app.css'), false);
+        wp_enqueue_style('replace-me-theme-public-styles', Assets::uri('app.css'), [], Assets::time('app.css'));
         wp_enqueue_script('replace-me-theme-public-scripts', Assets::uri('app.js'), ['jquery'], Assets::time('app.js'), true);
     }
 
