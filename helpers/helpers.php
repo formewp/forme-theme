@@ -19,11 +19,11 @@ if (!function_exists('render_view')) {
 
 if (!function_exists('assets')) {
     /**
-     * Spits out the static assets directory with short syntax for template use.
+     * Assets directory with short syntax for template use.
      */
-    function assets(): string
+    function assets(?string $path): string
     {
-        return get_template_directory_uri() . '/assets/static';
+        return \VendorName\ReplaceMeTheme\Core\Assets::uri($path ?? '');
     }
 }
 
