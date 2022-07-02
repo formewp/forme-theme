@@ -7,15 +7,6 @@
  * global view helper functions belong in inc/.
  **/
 
-/**
- *  Composer autoload.
- **/
-$localAutoload = get_template_directory() . '/vendor/autoload.php';
-if (file_exists($localAutoload)) {
-    // if it exists, load it. otherwise we assume composer install has been done from the project root
-    include_once $localAutoload;
-}
-
 /*
  * Load dotenv
  *
