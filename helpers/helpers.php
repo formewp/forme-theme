@@ -12,8 +12,23 @@ if (!function_exists('render_view')) {
      */
     function render_view(string $file, array $context = []): void
     {
-        $v = \Forme\getInstance('VendorName\\ReplaceMeTheme\\Core\\View');
+        $v = \Forme\getInstance(\VendorName\ReplaceMeTheme\Core\View::class);
         echo $v->render($file, $context);
+    }
+}
+
+if (!function_exists('view')) {
+    /**
+     * A convenience function for rendering a view
+     * You probably don't need this in templates (just use the $v instance)
+     * but comes in handy in other situations
+     * e.g. when you want to render a view in another function.
+     */
+    function render_view(string $file, array $context = []): string
+    {
+        $v = \Forme\getInstance(\VendorName\ReplaceMeTheme\Core\View::class);
+
+        return $v->render($file, $context);
     }
 }
 
