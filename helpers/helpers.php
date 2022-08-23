@@ -24,7 +24,7 @@ if (!function_exists('view')) {
      * but comes in handy in other situations
      * e.g. when you want to render a view in another function.
      */
-    function render_view(string $file, array $context = []): string
+    function view(string $file, array $context = []): string
     {
         $v = \Forme\getInstance(\VendorName\ReplaceMeTheme\Core\View::class);
 
