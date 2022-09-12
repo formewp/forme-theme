@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace VendorName\ReplaceMeTheme\Translators;
+namespace VendorName\ReplaceMeTheme\Transformers;
 
 use Forme\Framework\Http\ServerRequest;
 
-class SinglePageTranslator
+class SinglePageTransformer
 {
-    public function translate(ServerRequest $request): array
+    public function transform(ServerRequest $request): array
     {
         $postId           = $request['postId'];
         $context          = $request['fields'];

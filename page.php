@@ -6,25 +6,25 @@ namespace VendorName\ReplaceMeTheme\Controllers;
 
 use Forme\Framework\Controllers\AbstractController;
 use VendorName\ReplaceMeTheme\Core\View;
-use VendorName\ReplaceMeTheme\Translators\SinglePageTranslator;
+use VendorName\ReplaceMeTheme\Transformers\SinglePageTransformer;
 
 class PageController extends AbstractController
 {
-    /** @var SinglePageTranslator */
-    private $singlePageTranslator;
+    /** @var SinglePageTransformer */
+    private $singlePageTransformer;
 
     /** @var View */
     private $view;
 
-    public function __construct(SinglePageTranslator $singlePageTranslator, View $view)
+    public function __construct(SinglePageTransformer $singlePageTransformer, View $view)
     {
-        $this->singlePageTranslator    = $singlePageTranslator;
-        $this->view                    = $view;
+        $this->singlePageTransformer    = $singlePageTransformer;
+        $this->view                     = $view;
     }
 
     public function __invoke($request = [])
     {
-        $context = $this->singlePageTranslator->translate($request);
+        $context = $this->singlePageTransformer->transform($request);
 
         return $this->view->render('default', $context);
     }
