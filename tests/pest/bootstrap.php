@@ -7,8 +7,6 @@ $projectDir                = dirname(__FILE__, 3);
 function activatePlugins(): void
 {
     include_once ABSPATH . 'wp-admin/includes/plugin.php';
-    activate_plugin('advanced-custom-fields-pro/acf.php');
-    activate_plugin('formidable/formidable.php');
 }
 
 addFilter('muplugins_loaded', 'activatePlugins', -999);
