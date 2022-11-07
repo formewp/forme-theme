@@ -34,9 +34,6 @@
                 "action": "\\CaptainHook\\App\\Hook\\PHP\\Action\\Linting"
             },
             {
-                "action": "composer test"
-            },
-            {
                 "action": "bash ./scripts/php_cs_fixer.sh"
             }
         ]
