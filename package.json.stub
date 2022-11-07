@@ -15,7 +15,7 @@
         "bootstrap5-multi-level-dropdown": "^1.0.2"
     },
     "devDependencies": {
-        "@symfony/webpack-encore": "^1.6.1",
+        "@symfony/webpack-encore": "^3.0.0",
         "webpack-notifier": "^1.13.0"
     }
 }
