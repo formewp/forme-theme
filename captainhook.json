@@ -34,7 +34,10 @@
                 "action": "\\CaptainHook\\App\\Hook\\PHP\\Action\\Linting"
             },
             {
-                "action": "bash ./scripts/php_cs_fixer.sh"
+                "action": "\\Forme\\Framework\\View\\Plates\\CaptainHook\\Lint"
+            },
+            {
+                "action": "./scripts/php_cs_fixer.sh"
             }
         ]
     },
@@ -81,5 +84,8 @@
     "post-change": {
         "enabled": false,
         "actions": []
+    },
+    "config": {
+        "verbosity": "verbose"
     }
 }
