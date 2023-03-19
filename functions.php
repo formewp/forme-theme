@@ -4,20 +4,14 @@
  * Think of it like bootstrap.php in a laravel app
  * You shouldn't be adding anything else to this file
  * actions and filters belong in app/
- * global view helper functions belong in inc/.
+ * global view helper functions belong in helpers/.
  **/
 
 /*
- * Load dotenv
+ * Bootstrap forme framework
  *
  **/
-\Forme\loadDotenv();
-
-/*
- * Load Whoops if dev
- *
- **/
-\Forme\loadWhoops();
+\Forme\bootstrap();
 
 /**
  * Include routes.
