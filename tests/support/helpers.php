@@ -6,6 +6,7 @@ use Forme\Framework\Models\Post;
 use Forme\Framework\Models\PostMeta;
 use Forme\Framework\Models\User;
 use Forme\Framework\Models\UserMeta;
+use Illuminate\Support\Env;
 
 use function Forme\getInstance;
 
@@ -37,6 +38,22 @@ if (!function_exists('activatePlugins')) {
     function activatePlugins(): void
     {
         include_once ABSPATH . 'wp-admin/includes/plugin.php';
+    }
+}
+
+if (!function_exists('resetEnvValue')) {
+    function resetEnvValue($name, $value)
+    {
+        // see https://stackoverflow.com/a/66775842
+        $environmentRepository = Env::getRepository();
+
+        $fn = function () use ($name, $value) {
+            $fn = function () use ($name, $value) {
+                $this->writer->write($name, $value);
+            };
+            $fn->call($this->writer);
+        };
+        $fn->call($environmentRepository);
     }
 }
 
