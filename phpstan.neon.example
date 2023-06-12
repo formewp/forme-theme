@@ -17,3 +17,4 @@ parameters:
   excludePaths:
     - tests
     - wp-test
+    - views
