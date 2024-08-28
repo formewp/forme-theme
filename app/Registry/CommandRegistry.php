@@ -1,0 +1,21 @@
+<?php
+
+declare(strict_types=1);
+
+namespace VendorName\ReplaceMeTheme\Registry;
+
+use Forme\Framework\Registry\RegistryInterface;
+
+final class CommandRegistry implements RegistryInterface
+{
+    public function register(): void
+    {
+        if (! PHP_SAPI === 'cli') {
+            return;
+        }
+        $classFiles = glob(__DIR__ . '/../FormeCommand/*');
+        foreach ($classFiles as $classFile) {
+            require_once $classFile;
+        }
+    }
+}

@@ -16,6 +16,8 @@ actions:
     class: VendorName\ReplaceMeTheme\Registry\FieldRegistry
   - hook: init
     class: VendorName\ReplaceMeTheme\Registry\PostTypeRegistry
+  - hook: init
+    class: VendorName\ReplaceMeTheme\Registry\CommandRegistry
   - hook: after_switch_theme
     class: VendorName\ReplaceMeTheme\Core\Activator
     method: activate
