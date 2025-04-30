@@ -27,6 +27,7 @@ final class PostTypeRegistry implements RegistryInterface
 
     public function updateMessages(?array $messages): void
     {
+        $messages = $messages ?? [];
         $postTypes = $this->getInstances();
         foreach ($postTypes as $postType) {
             $postType->updateMessages($messages);
