@@ -20,14 +20,14 @@ const paths = [
 ];
 
 const viewDirectories = [
-    'views/plates-4',
+    'views/platine',
     'views/blade',
     'views/plates',
     'views/twig'
 ];
 
 const viewClasses = {
-    'plates-4': 'LegacyPlatesView',
+    'platine': 'PlatineView',
     'blade': 'BladeView',
     'plates': 'PlatesView',
     'twig': 'TwigView'
@@ -78,7 +78,7 @@ function multilevelCss() {
 
 function copyViews() {
     if (typeof argv.view === "undefined") {
-        argv.view = "plates-4";
+        argv.view = "platine";
     }
     // copy contents to /views/
     return src('views/' + argv.view + '/**/**').pipe(dest('./views/'));
@@ -90,7 +90,7 @@ function deleteSourceViews() {
 
 function updateViewClass() {
     if (typeof argv.view === "undefined") {
-        argv.view = "plates-4";
+        argv.view = "platine";
     }
     return src('./app/Core/View.php')
         .pipe(replace('ViewClassGoesHere', viewClasses[argv.view]))
