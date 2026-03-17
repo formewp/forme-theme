@@ -25,33 +25,13 @@ class PublicQueueRegistry implements RegistryInterface
 
         wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css');
 
-        if (Assets::devServerActive()) {
-            // Dev: inject the Vite client in the head, then the entry module.
-            // CSS is injected by Vite automatically — no wp_enqueue_style needed.
-            wp_enqueue_script('vite-client', Assets::viteClientUri(), [], null, false);
-            wp_enqueue_script('replace-me-theme-public-scripts', Assets::uri('assets/src/js/app.js'), [], null, false);
-        } else {
-            // Production: enqueue CSS extracted by Vite from the entry, then the hashed JS.
-            $version    = Assets::time('assets/src/js/app.js');
-            $cssPaths   = Assets::cssFromManifest('assets/src/js/app.js');
-
-            foreach ($cssPaths as $index => $cssUri) {
-                wp_enqueue_style(
-                    'replace-me-theme-public-styles-' . $index,
-                    $cssUri,
-                    [],
-                    $version
-                );
-            }
-
-            wp_enqueue_script(
-                'replace-me-theme-public-scripts',
-                Assets::uri('assets/src/js/app.js'),
-                ['jquery'],
-                $version,
-                true
-            );
-        }    }
+        wp_deregister_script('jquery');
+        wp_enqueue_script('jquery', 'https://code.jquery.com/jquery-3.6.1.min.js"', [], false, true);
+        wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css');
+        // we do everything else via dist or static
+        wp_enqueue_style('replace-me-theme-public-styles', Assets::uri('app.css'), [], Assets::time('app.css'));
+        wp_enqueue_script('replace-me-theme-public-scripts', Assets::uri('app.js'), ['jquery'], Assets::time('app.js'), true);
+    }
 
     /**
      * Add type="module" to Vite-managed script tags.
@@ -59,10 +39,13 @@ class PublicQueueRegistry implements RegistryInterface
      */
     public function moduleTag(string $tag, string $handle, string $src): string
     {
-        $moduleHandles = ['vite-client', 'replace-me-theme-public-scripts'];
-
-        if (!in_array($handle, $moduleHandles, true)) {
+        if ($handle !== 'replace-me-theme-public-scripts') {
             return $tag;
+        }
+
+        if (Assets::devServerActive()) {
+            $client = '<script type="module" src="' . esc_url(Assets::viteClientUri()) . '"></script>' . "\n";
+            return $client . '<script type="module" src="' . esc_url($src) . '"></script>' . "\n";
         }
 
         return '<script type="module" src="' . esc_url($src) . '"></script>' . "\n";
