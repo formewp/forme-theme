@@ -8,7 +8,7 @@ const paths = [
     'app/**/**',
     'composer.json',
     'package.json.stub',
-    'webpack.config.js',
+    'vite.config.ts',
     'index.php',
     'functions.php',
     'page.php',
