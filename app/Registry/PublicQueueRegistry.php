@@ -21,13 +21,8 @@ class PublicQueueRegistry implements RegistryInterface
         // lose the wp jquery and replace with latest
         // it would probably be risky to bypass enqueue for jQuery due to third party plugins so let's keep it here
         wp_deregister_script('jquery');
-        wp_enqueue_script('jquery', 'https://code.jquery.com/jquery-3.6.1.min.js"', [], false, true);
-
-        wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css');
-
-        wp_deregister_script('jquery');
-        wp_enqueue_script('jquery', 'https://code.jquery.com/jquery-3.6.1.min.js"', [], false, true);
-        wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css');
+        wp_enqueue_script('jquery', 'https://code.jquery.com/jquery-4.0.0.min.js"', [], false, true);
+        wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.2.0/css/all.min.css');
         // we do everything else via dist or static
         wp_enqueue_style('replace-me-theme-public-styles', Assets::uri('app.css'), [], Assets::time('app.css'));
         wp_enqueue_script('replace-me-theme-public-scripts', Assets::uri('app.js'), ['jquery'], Assets::time('app.js'), true);
